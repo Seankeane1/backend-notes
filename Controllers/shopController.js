@@ -1,3 +1,8 @@
+exports.middlewareSample = (req, res, next) =>{
+    
+}
+
+
 exports.homepage = async (req,res) =>{
     const stores = ["Dunkin", "Tim Hortons", "Seven Eleven"];
      try{
