@@ -13,3 +13,19 @@ exports.homepage = async (req,res) =>{
          console.log(error);
      }
  };
+
+ exports.authMiddleware = (req, res, next) => {
+     if(req.body.user){
+         next();
+     } else{
+         res.json("You must be signed in")
+     }
+ }
+
+ exports.authPage = async (req, res) => {
+     try{
+         res.json(req.body.user)
+     } catch(error){
+        console.log(error);
+    }
+ }
