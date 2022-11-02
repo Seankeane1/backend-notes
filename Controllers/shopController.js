@@ -5,7 +5,7 @@ exports.middlewareSample = (req, res, next) =>{
 
 
 exports.homepage = async (req,res) =>{
-    const stores = ["Dunkin", "Tim Hortons", "Seven Eleven"];
+    const stores = ["Dunkin", "Seven Eleven"];
      try{
          console.log(req.name)
          res.json(stores);
