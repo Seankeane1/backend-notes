@@ -11,7 +11,8 @@ const shopSchema = new mongoose.Schema({
     slug: String,
     description: {
         type: String,
-        trim: true
+        trim: true, 
+        required: "please provide a description"
     },
     tags: [String]
 
