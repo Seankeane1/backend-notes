@@ -19,4 +19,13 @@ exports.homepage = async (req,res) =>{
         console.log(error);
         res.statud(500).json(error);
     }
+ };
+
+ exports.getShops = async (res, req) =>{
+    try {
+        const Shops = await Shop.find().limit(2);
+        res.json(Shops)
+    } catch (error) {
+        console.log(error)
+    }
  }
