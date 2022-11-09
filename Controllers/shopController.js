@@ -10,7 +10,7 @@ exports.homepage = async (req,res) =>{
      }
  };
 
- exports.createShop = async(req, re) => {
+ exports.createShop = async(req, res) => {
     try{
         const shop = new Shop(req.body);
         await shop.save();
@@ -25,6 +25,18 @@ exports.homepage = async (req,res) =>{
     try {
         const Shops = await Shop.find().limit(2);
         res.json(Shops)
+    } catch (error) {
+        console.log(error)
+    }
+ };
+
+ exports.updateShops = async(req, res)=> {
+    try {
+      const shop = await shop.findById(req.params.id);
+      const updates = Object.keys(req.body);
+      updates.forEach((update)=> (shop[update] = req.body[update]));
+      await shop.save()
+      res.json(shop);
     } catch (error) {
         console.log(error)
     }
